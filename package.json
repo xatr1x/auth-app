@@ -1,0 +1,24 @@
+{
+  "name": "redis-auth-app",
+  "version": "1.0",
+  "description": "Redis auth app",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "run:services": "docker-compose up && exit 0"
+  },
+  "author": "Vitalii Sumlennyi",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-redis": "^7.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "redis": "^4.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

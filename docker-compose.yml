@@ -1,0 +1,19 @@
+version: '3'
+services:
+  redis:
+    container_name: app_auth_redis
+    image: redis:latest
+    ports:
+      - '6379:6379'
+  app:
+    container_name: app_auth_node
+    image: node:12
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - /app/node_modules
+    command: >
+      sh -c "npm install && npm start"
+
