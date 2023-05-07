@@ -11,12 +11,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const redisClient = createClient();
+const redisClient = createClient({ url: 'redis://redis:6379' });
 redisClient.connect().catch(console.log('Redis error'));
 
 const redisStore = new RedisStore({
   client: redisClient,
-  prefix: 'auth app'
+  prefix: 'auth app',
 })
 
 app.use(

@@ -12,13 +12,13 @@ export default function requireLogin(req, res, next) {
     const msFromUpdated =
       new Date().getTime() - new Date(sess.updatedAt).getTime();
 
-    if (sess.blocked && msFromUpdated >= 5000) {
+    if (sess.blocked && msFromUpdated >= 300000) {
       sess.updatedAt = new Date();
       console.log('UNBLOCKED');
       sess.blocked = false;
     }
 
-    if (!sess.blocked && msFromUpdated >= 10000) {
+    if (!sess.blocked && msFromUpdated >= 3600000) {
       sess.updatedAt = new Date();
       console.log('BLOCKED');
       sess.blocked = true;
